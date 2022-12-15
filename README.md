@@ -1,3 +1,4 @@
+{
 import React, { useState, useEffect } from "react";
 import { Input, Button } from "antd";
 import "styles/org.css";
@@ -5,6 +6,33 @@ import "styles/org.css";
 const TestList = (props) => {
   const { TextArea } = Input;
   const { orgData, onChangeData, device, createInputBox, deleteData } = props;
+
+  // orgData => data
+  // divice => dram, nand ...
+
+  //   const onChangeData = (e, index, device) => {
+  //   let copiedItems = [];
+
+  //   if (device === "DRAM") {
+
+  //     copiedItems = [...dramData];
+
+  //     copiedItems[index].title = e;
+
+  //     setDramData(copiedItems);
+
+  //   } else if (device === "NAND") {
+  //     copiedItems[1][index].title = e;
+  //   } else if (device === "PCM") {
+  //     copiedItems[2][index].title = e;
+  //   } else if (device === "COMMON") {
+  //     copiedItems[3][index].title = e;
+  //   }
+  // };
+
+
+  
+
   const [ data, setData] = useState([]);
 
   const [firstCheck, setFirstCheck] = useState(false);
@@ -253,3 +281,4 @@ const TestList = (props) => {
 };
 
 export default TestList;
+}
