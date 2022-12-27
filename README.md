@@ -315,3 +315,41 @@ const TestList = (props) => {
 };
 
 export default TestList;
+
+
+    const regex = /[^0-9]/g;                                                          // 숫자만
+    let classItemNumber = parseInt(classArr[0].replace(regex, ""));                   // 분류 분과(C 로 시작)의 숫자만 걸러내기
+    let userItemNumber = parseInt(lastUser.item.replace(regex, ""));                  // 유저(U)숫자만 걸러내기
+
+    let classResult = "C" + String((classItemNumber + 1)).padStart(4, "0");           // C 00001 이런식으로 만들어주는것
+    let boardResult = "U" + String((userItemNumber + 1)).padStart(4, "0");
+    let departResult = "U" + String((userItemNumber + 2)).padStart(4, "0");
+    let boardParentCode = "U" + String((userItemNumber + 1) - 2).padStart(4, "0");
+    let departParentCode = "U" + String((userItemNumber + 2) - 2).padStart(4, "0");
+
+    let classObj = {
+      index: null,
+      title: addUserData.class,
+      item: classResult,
+      parent: "",
+      YN: "Y",
+      depth: (lastUser.depth + 1)
+    }
+
+    let boardObj = {
+      index: null,
+      title: addUserData.boardUser,
+      item: boardResult,
+      parent: boardParentCode,
+      YN: "Y",
+      depth: (lastUser.depth + 1)
+    }
+
+    let departObj = {
+      index: null,
+      title: addUserData.departUser,
+      item: departResult,
+      parent: departParentCode,
+      YN: "Y",
+      depth: (lastUser.depth + 1)
+    }
